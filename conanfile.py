@@ -46,6 +46,7 @@ class QuickfixConan(ConanFile):
         if self.settings.compiler != "Visual Studio":
             cmake.definitions["CMAKE_CXX_FLAGS"] = "-std=c++11"
         cmake.definitions["HAVE_SSL"] = True
+        cmake.definitions["BUILD_EXAMPLES"] = False
         cmake.definitions["BUILD_SHARED_LIBS"] = self.options.shared
         cmake.configure(build_folder=self._build_subfolder)
         return cmake
